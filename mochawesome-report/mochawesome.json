@@ -1,0 +1,272 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2018-06-08T09:55:20.888Z",
+    "end": "2018-06-08T09:55:27.172Z",
+    "duration": 6284,
+    "testsRegistered": 6,
+    "passPercent": 83.3,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "4e60f37a-afe0-48e3-af54-a4f310d7dcf9",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "87cab232-28f7-40bf-9574-41a613eb4b9b",
+        "title": "POST user",
+        "fullFile": "c:\\testmjs\\test\\RESTAPI.js",
+        "file": "\\test\\RESTAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Should create a user",
+            "fullTitle": "POST user Should create a user",
+            "timedOut": false,
+            "duration": 2516,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n    .request(api)\n    .post('/api/users')\n    .send({\"username\": username, 'password':password})\n    .end(function (error, response) {\n        if (error) done(error);\n        const result = response.statusCode;\n        var bodyObj = response.body;\n        id = response.body.id;\n        expect(result).to.equal(201);\n        console.log(bodyObj);\n        done();                \n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "93094c14-dc45-43e3-a2a5-5fd52bdaca89",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "93094c14-dc45-43e3-a2a5-5fd52bdaca89"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 2516,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "861fbe70-87e4-4499-a736-1dd5ffcd03d5",
+        "title": "PUT - update user",
+        "fullFile": "c:\\testmjs\\test\\RESTAPI.js",
+        "file": "\\test\\RESTAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Should update password",
+            "fullTitle": "PUT - update user Should update password",
+            "timedOut": false,
+            "duration": 0,
+            "state": "failed",
+            "pass": false,
+            "fail": true,
+            "pending": false,
+            "code": "chai\n    .request(api)\n    .post('/api/users')\n    .send({\"username\": username, 'password':password +'update'})\n    .end(function (error, response) {\n        if (error) done(error);\n        const result = response.statusCode;\n        var bodyObj = response.body;\n        expect(result).to.equal(201);\n        console.log(bodyObj);\n        done();                \n    })",
+            "err": {
+              "message": "AssertionError: expected 400 to equal 201",
+              "estack": "AssertionError: expected 400 to equal 201\n    at c:\\testmjs\\test\\RESTAPI.js:39:35\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.parser (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (_stream_readable.js:974:12)\n    at _combinedTickCallback (internal/process/next_tick.js:74:11)\n    at process._tickCallback (internal/process/next_tick.js:98:9)",
+              "diff": "- 400\n+ 201\n"
+            },
+            "isRoot": false,
+            "uuid": "fdc41e68-c421-4c0f-8941-023c0525244e",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [
+          "fdc41e68-c421-4c0f-8941-023c0525244e"
+        ],
+        "pending": [],
+        "skipped": [],
+        "duration": null,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "22d9b555-8404-474a-9323-2116b26477d9",
+        "title": "GET user",
+        "fullFile": "c:\\testmjs\\test\\RESTAPI.js",
+        "file": "\\test\\RESTAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Should get a user",
+            "fullTitle": "GET user Should get a user",
+            "timedOut": false,
+            "duration": 321,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n    .request(api)\n    .get('/api/users/'+ id)\n    .end(function (error, response) {\n        if (error) done(error);\n        const result = response.statusCode;\n        var bodyObj = response.body;\n        expect(result).to.equal(200);\n        console.log(bodyObj);\n        done();\n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "c334b1f7-e078-4930-8b1a-d950eb58569b",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "c334b1f7-e078-4930-8b1a-d950eb58569b"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 321,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "dde0f5bd-6b19-4a83-b42e-5b171e649b83",
+        "title": "GET user token",
+        "fullFile": "c:\\testmjs\\test\\RESTAPI.js",
+        "file": "\\test\\RESTAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Should get a token",
+            "fullTitle": "GET user token Should get a token",
+            "timedOut": false,
+            "duration": 2448,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n    .request(api)\n    .get('/api/token')\n    .auth(username,password)\n    .end(function (error, response) {\n        if (error) done(error);\n        const result = response.statusCode;\n        var bodyObj = response.body;\n        token = response.body.token;\n        expect(result).to.equal(200);\n        console.log(bodyObj);\n        done();\n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "b5b49e06-6e7b-4095-a14a-359f0d5d222e",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "b5b49e06-6e7b-4095-a14a-359f0d5d222e"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 2448,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "18f674fb-b340-4001-b5d8-6a5ba077fbc9",
+        "title": "GET user resource",
+        "fullFile": "c:\\testmjs\\test\\RESTAPI.js",
+        "file": "\\test\\RESTAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Should get a resource",
+            "fullTitle": "GET user resource Should get a resource",
+            "timedOut": false,
+            "duration": 286,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n    .request(api)\n    .get('/api/resource')\n    .auth(token,'')\n    .end(function (error, response) {\n        if (error) done(error);\n        const result = response.statusCode;\n        var bodyObj = response.body;\n        expect(result).to.equal(200);\n        console.log(bodyObj);\n        done();\n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "7dc1a38d-6053-46de-9def-7964e149f53b",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "7dc1a38d-6053-46de-9def-7964e149f53b"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 286,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      },
+      {
+        "uuid": "455ad69b-1ef8-41dd-9093-011c4b5c2c4a",
+        "title": "DELETE user resource",
+        "fullFile": "c:\\testmjs\\test\\RESTAPI.js",
+        "file": "\\test\\RESTAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should delete user",
+            "fullTitle": "DELETE user resource should delete user",
+            "timedOut": false,
+            "duration": 374,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n    .request(api)\n    .del('/api/users/' + id)\n    .end(function (error, response) {\n        if (error) done(error);\n        const result = response.statusCode;\n        var bodyObj = response.body;\n        expect(result).to.equal(200);\n        console.log(bodyObj);\n        done();\n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "2fbb4a3a-6c80-4f5c-9e49-90fcd2b6b698",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "2fbb4a3a-6c80-4f5c-9e49-90fcd2b6b698"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 374,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 10000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 10000
+  },
+  "copyrightYear": 2018
+}

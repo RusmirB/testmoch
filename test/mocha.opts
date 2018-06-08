@@ -1,0 +1,3 @@
+--timeout 10000
+--reporter mochawesome
+--reporter-options overwrite=true,reportTitle=My\ Custom\ Title,showPassed=true
